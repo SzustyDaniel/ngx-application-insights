@@ -2,9 +2,42 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
+    "analytics": "c8cba23f-bfa8-4752-9e6f-d06d67c93b4c",
     "packageManager": "yarn"
   },
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "angular-azure-insights": {
+      "projectType": "library",
+      "root": "projects/angular-azure-insights",
+      "sourceRoot": "projects/angular-azure-insights/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-azure-insights/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-azure-insights/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-azure-insights/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-azure-insights/src/test.ts",
+            "tsConfig": "projects/angular-azure-insights/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-azure-insights/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-azure-insights"
 }
