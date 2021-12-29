@@ -1,16 +1,8 @@
 import { NgModule } from '@angular/core';
-import { AngularAzureInsightsComponent } from './angular-azure-insights.component';
-
-
 
 @NgModule({
-  declarations: [
-    AngularAzureInsightsComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    AngularAzureInsightsComponent
-  ]
+  declarations: [],
+  imports: [],
+  exports: [],
 })
-export class AngularAzureInsightsModule { }
+export class AngularAzureInsightsModule {}
