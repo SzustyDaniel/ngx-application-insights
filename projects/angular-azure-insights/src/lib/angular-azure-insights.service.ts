@@ -10,8 +10,10 @@ import {
 export class AngularAzureInsightsService {
   private readonly appInsights: ApplicationInsights;
 
-  constructor() {
-    this.appInsights = new ApplicationInsights({ config: {} }); // TODO init from for root definition in module.
+  constructor(
+    @Inject('APP_AZURE_CONFIGURATION') configuration: IConfiguration
+  ) {
+    this.appInsights = new ApplicationInsights({ config: configuration }); // TODO init from for root definition in module.
     this.appInsights.loadAppInsights();
   }
 }
