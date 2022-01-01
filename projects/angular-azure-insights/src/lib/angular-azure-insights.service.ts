@@ -84,6 +84,19 @@ export class AngularAzureInsightsService {
     this.appInsights.trackPageViewPerformance(pagePerformance);
   }
 
+  // Start a timed event tracking
+  public startTrackEvent(name: string): void {
+    this.appInsights.startTrackEvent(name);
+  }
+
+  public stopTrackEvent(
+    name: string,
+    properties?: { [key: string]: string },
+    measurements?: { [key: string]: number }
+  ): void {
+    this.appInsights.stopTrackEvent(name, properties);
+  }
+
   // TODO add logging support through outer service
   // TODO add documentation
   // TODO expose cookie support
