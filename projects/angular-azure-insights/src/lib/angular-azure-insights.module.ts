@@ -5,7 +5,7 @@ import {
   SkipSelf,
 } from '@angular/core';
 import { IConfiguration } from '@microsoft/applicationinsights-web';
-import { AngularAzureInsightsService } from 'angular-azure-insights';
+import { AngularAzureInsightsService } from './services';
 
 @NgModule({
   declarations: [],

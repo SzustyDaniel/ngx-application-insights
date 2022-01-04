@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, Optional } from '@angular/core';
 import {
   IEventTelemetry,
   IExceptionTelemetry,
@@ -18,25 +18,29 @@ import {
   providedIn: 'root',
 })
 export class AngularAzureInsightsService {
-  private readonly appInsights: ApplicationInsights;
+  private appInsights?: ApplicationInsights;
 
   constructor(
     @Inject('APP_AZURE_CONFIGURATION') configuration: IConfiguration
   ) {
-    this.appInsights = new ApplicationInsights({ config: configuration });
-    this.appInsights.loadAppInsights();
+    try {
+      this.appInsights = new ApplicationInsights({ config: configuration });
+      this.appInsights.loadAppInsights();
+    } catch (ex) {
+      console.error('Angular Azure Insights service failed to initialize');
+    }
   }
 
   // Trigger controlled flush of the collected data by AppInsights (Not required since it's done automatically)
   public flush(): void {
-    this.appInsights.flush();
+    this.appInsights?.flush();
   }
 
   // Modify collected telemetry using a telemetry initializer, for more information please read the documentation at https://github.com/microsoft/applicationinsights-js
   public addTelemetryProperty(
     telemetryItem: (item: ITelemetryItem) => boolean | void
   ): void {
-    this.appInsights.addTelemetryInitializer(telemetryItem);
+    this.appInsights?.addTelemetryInitializer(telemetryItem);
   }
 
   // Trace scenarios of entering or leaving a function / method
@@ -44,9 +48,7 @@ export class AngularAzureInsightsService {
     trace: ITraceTelemetry,
     customProperties?: ICustomProperties
   ): void {
-    try {
-      this.appInsights.trackTrace(trace, customProperties);
-    } catch (e) {}
+    this.appInsights?.trackTrace(trace, customProperties);
   }
 
   // Log user action or certain event
@@ -54,7 +56,7 @@ export class AngularAzureInsightsService {
     event: IEventTelemetry,
     customProperties?: ICustomProperties
   ): void {
-    this.appInsights.trackEvent(event);
+    this.appInsights?.trackEvent(event);
   }
 
   // Log exceptions
@@ -62,7 +64,7 @@ export class AngularAzureInsightsService {
     exception: IExceptionTelemetry,
     customProperties?: ICustomProperties
   ): void {
-    this.appInsights.trackException(exception, customProperties);
+    this.appInsights?.trackException(exception, customProperties);
   }
 
   // Log numeric value corresponding to a tracked performance event
@@ -70,23 +72,23 @@ export class AngularAzureInsightsService {
     metric: IMetricTelemetry,
     customProperties?: ICustomProperties
   ): void {
-    this.appInsights.trackMetric(metric, customProperties);
+    this.appInsights?.trackMetric(metric, customProperties);
   }
 
   // Log a page or container that was shown to the user
   public trackPageView(page?: IPageViewTelemetry): void {
-    this.appInsights.trackPageView(page);
+    this.appInsights?.trackPageView(page);
   }
 
   public trackPagePerformance(
     pagePerformance: IPageViewPerformanceTelemetry
   ): void {
-    this.appInsights.trackPageViewPerformance(pagePerformance);
+    this.appInsights?.trackPageViewPerformance(pagePerformance);
   }
 
   // Start a timed event tracking
   public startTrackEvent(name: string): void {
-    this.appInsights.startTrackEvent(name);
+    this.appInsights?.startTrackEvent(name);
   }
 
   public stopTrackEvent(
@@ -94,10 +96,49 @@ export class AngularAzureInsightsService {
     properties?: { [key: string]: string },
     measurements?: { [key: string]: number }
   ): void {
-    this.appInsights.stopTrackEvent(name, properties);
+    this.appInsights?.stopTrackEvent(name, properties);
   }
 
-  // TODO add logging support through outer service
+  public startTrackPageEvent(name: string): void {
+    this.appInsights?.startTrackPage(name);
+  }
+
+  public stopTrackPageEvent(
+    name: string,
+    url?: string,
+    customProperties?: { [key: string]: string },
+    measurements?: { [key: string]: number }
+  ): void {
+    this.appInsights?.stopTrackPage(name, url, customProperties, measurements);
+  }
+
+  public enableOrDisableCookie(enable: boolean): void {
+    this.appInsights?.getCookieMgr().setEnabled(enable);
+  }
+
+  public isCookieEnabled(): boolean | undefined {
+    return this.appInsights?.getCookieMgr().isEnabled();
+  }
+
+  public setCookie(
+    name: string,
+    encodedValue: string,
+    maxAgeInSeconds?: number,
+    domain?: string,
+    path?: string
+  ): boolean | undefined {
+    return this.appInsights
+      ?.getCookieMgr()
+      .set(name, encodedValue, maxAgeInSeconds, domain, path);
+  }
+
+  public deleteCookie(name: string, path?: string): boolean | undefined {
+    return this.appInsights?.getCookieMgr().del(name, path);
+  }
+
+  public purgeCookie(name: string, path?: string): boolean | undefined {
+    return this.appInsights?.getCookieMgr().purge(name, path);
+  }
+
   // TODO add documentation
-  // TODO expose cookie support
 }
