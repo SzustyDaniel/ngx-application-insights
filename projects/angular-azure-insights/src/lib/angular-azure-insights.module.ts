@@ -16,7 +16,6 @@ export class AngularAzureInsightsModule {
   public static forRoot(
     serviceConfig: IConfiguration
   ): ModuleWithProviders<AngularAzureInsightsModule> {
-    // TODO add init values for service.
     return {
       ngModule: AngularAzureInsightsModule,
       providers: [
