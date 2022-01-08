@@ -1,6 +1,25 @@
 {
   "name": "ngx-applications-insights",
   "version": "1.0.0",
+  "description": "Angular wrapper for the application-js package",
+  "repository": {
+    "url": "https://github.com/SzustyDaniel/ngx-application-insights"
+  },
+  "bugs": {
+    "url": "https://github.com/SzustyDaniel/ngx-application-insights/issues"
+  },
+  "author": {
+    "name": "Daniel Szuster"
+  },
+  "license": "The Unlicense",
+  "keywords": [
+    "angular",
+    "angular13",
+    "azure application insights",
+    "application insights",
+    "angular application insights",
+    "ngx application insights"
+  ],
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0",
