@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-This is a basic angular implemention for the <a href="https://github.com/microsoft/applicationinsights-js">ApplicationInsights-JS</a> package
+This is a basic angular wrapper implemention for the <a href="https://github.com/microsoft/applicationinsights-js">ApplicationInsights-JS</a> package
 
 ```
 @NgModule({
