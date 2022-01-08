@@ -1,4 +1,4 @@
-import { Inject, Injectable, Optional } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import {
   IEventTelemetry,
   IExceptionTelemetry,
@@ -9,19 +9,20 @@ import {
 } from '@microsoft/applicationinsights-common';
 import {
   ApplicationInsights,
-  IConfiguration,
   ICustomProperties,
   ITelemetryItem,
 } from '@microsoft/applicationinsights-web';
+import { InsightsConfigModel } from '../models';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AngularAzureInsightsService {
+export class NgxApplicationInsightsService {
   private readonly appInsights: ApplicationInsights;
 
   constructor(
-    @Inject('APP_AZURE_CONFIGURATION') configuration: IConfiguration
+    @Inject('APP_INSIGHTS_CONFIG')
+    private configuration: InsightsConfigModel
   ) {
     this.appInsights = new ApplicationInsights({ config: configuration });
     this.appInsights.loadAppInsights();

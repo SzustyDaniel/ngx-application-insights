@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/angular-azure-insights",
+  "dest": "../../dist/ngx-application-insights",
   "lib": {
     "entryFile": "src/public-api.ts"
   }
