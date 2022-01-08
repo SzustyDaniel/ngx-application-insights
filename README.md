@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-This is a basic angular wrapper implemention for the <a href="https://github.com/microsoft/applicationinsights-js">ApplicationInsights-JS</a> package
+This is a basic angular wrapper implementation for the <a href="https://github.com/microsoft/applicationinsights-js">ApplicationInsights-JS</a> package
 
 ```
 @NgModule({
@@ -20,8 +20,6 @@ This is a basic angular wrapper implemention for the <a href="https://github.com
 export class AppModule {}
 ```
 
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
