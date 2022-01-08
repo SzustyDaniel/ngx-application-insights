@@ -4,8 +4,8 @@
   "compilerOptions": {
     "paths": {
       "angular-azure-insights": [
-        "dist/angular-azure-insights/angular-azure-insights",
-        "dist/angular-azure-insights"
+        "dist/ngx-application-insights/angular-application-insights",
+        "dist/ngx-application-insights"
       ]
     },
     "baseUrl": "./",
@@ -24,10 +24,7 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
