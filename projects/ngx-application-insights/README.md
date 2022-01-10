@@ -1,19 +1,28 @@
-# Ngx Application Insights
+# Angular Azure Insights
+[![npm version](https://badge.fury.io/js/ngx-applications-insights.svg)](https://badge.fury.io/js/ngx-applications-insights)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+This is a basic angular wrapper implementation for the <a href="https://github.com/microsoft/applicationinsights-js">ApplicationInsights-JS</a> package.
 
-This library is a wrapper to the <a href="https://github.com/microsoft/applicationinsights-js">applicationinsights-js</a>.
-Please refer to the applicationinsights-js documentation for more advanced configuration if you require one.
+## Getting started
 
-example basic configuration
+a) Make sure you install ApplicationInsights-JS package
+```
+npm i @microsoft/applicationinsights-web
+```
 
+b) Install this package 
+```
+npm i ngx-applications-insights
+```
+
+c) Import NgxAzureInsightsModlue to you app.module imports section
 ```
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     NgxAzureInsightsModule.forRoot({
-      enableAutoRouteTracking: true, // enable route navigation tracking it is false by default
+      enableAutoRouteTracking: true, // enable route navigation tracking, the default valuefor this is false.
       instrumentationKey: 'Your Instrumentation Key From Azure here',
     }),
   ],
@@ -22,7 +31,3 @@ example basic configuration
 })
 export class AppModule {}
 ```
-
-## Build
-
-Run `ng build ngx-application-insights` to build the project. The build artifacts will be stored in the `dist/` directory.
