@@ -61,7 +61,7 @@ export class NgxApplicationInsightsService {
     event: IEventTelemetry,
     customProperties?: ICustomProperties
   ): void {
-    this.appInsights.trackEvent(event);
+    this.appInsights.trackEvent(event, customProperties);
   }
 
   /**
