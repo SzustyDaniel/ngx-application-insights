@@ -14,13 +14,13 @@ b) Install this package
 npm i ngx-applications-insights
 ```
 
-c) Import NgxAzureInsightsModlue to you app.module imports section
+c) Import NgxApplicationInsightsModule to you app.module imports section
 ```
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NgxAzureInsightsModule.forRoot({
+    NgxApplicationInsightsModule.forRoot({
       enableAutoRouteTracking: true, // enable route navigation tracking, the default valuefor this is false.
       instrumentationKey: 'Your Instrumentation Key From Azure here',
     }),
