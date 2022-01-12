@@ -15,7 +15,7 @@ b) Install this package
 npm i ngx-applications-insights
 ```
 
-c) Import NgxAzureInsightsModlue to you app.module imports section
+c) Import NgxApplicationInsightsModule to you app.module imports section
 ```
 @NgModule({
   declarations: [AppComponent],
