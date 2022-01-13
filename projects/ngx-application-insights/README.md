@@ -5,16 +5,19 @@ This is a basic angular wrapper implementation for the <a href="https://github.c
 ## Getting started
 
 a) Make sure you install ApplicationInsights-JS package
+
 ```
 npm i @microsoft/applicationinsights-web
 ```
 
-b) Install this package 
+b) Install this package
+
 ```
 npm i ngx-applications-insights
 ```
 
 c) Import NgxApplicationInsightsModule to you app.module imports section
+
 ```
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +33,9 @@ c) Import NgxApplicationInsightsModule to you app.module imports section
 })
 export class AppModule {}
 ```
-4) Inject NgxApplicationInsightsService to user component / service etc.
+
+4. Inject NgxApplicationInsightsService to user component / service etc.
+
 ```
 import { Component, OnInit } from '@angular/core';
 import { NgxApplicationInsightsService } from 'ngx-applications-insights';
@@ -47,7 +52,7 @@ export class ExampleComponent implements OnInit {
    console.log('Called track event');
     this.insights.trackEvent({
       name: 'Test event a',
-      properties: { ['A']: 12 },
+      properties: { A: 12 },
     });
   }
 }
