@@ -38,6 +38,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ngx-application-insights"
+  }
 }
