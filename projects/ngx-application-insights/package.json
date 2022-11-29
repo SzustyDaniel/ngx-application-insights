@@ -1,6 +1,6 @@
 {
   "name": "ngx-applications-insights",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Angular wrapper for the application-js package",
   "repository": {
     "url": "https://github.com/SzustyDaniel/ngx-application-insights"
@@ -21,8 +21,8 @@
     "ngx application insights"
   ],
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0",
     "@microsoft/applicationinsights-web": "^2.8.0"
   },
   "dependencies": {
