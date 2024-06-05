@@ -1,6 +1,6 @@
 {
   "name": "ngx-applications-insights",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Angular wrapper for the application-js package",
   "repository": {
     "url": "https://github.com/SzustyDaniel/ngx-application-insights"
@@ -14,16 +14,16 @@
   "license": "The Unlicense",
   "keywords": [
     "angular",
-    "angular15",
+    "angular18",
     "azure application insights",
     "application insights",
     "angular application insights",
     "ngx application insights"
   ],
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0",
-    "@microsoft/applicationinsights-web": "^2.8.0"
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@microsoft/applicationinsights-web": "^3.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
