@@ -19,7 +19,7 @@
     "@angular/platform-browser-dynamic": "^20.1.2",
     "@angular/router": "^20.1.2",
     "@microsoft/applicationinsights-web": "^3.3.9",
-    "rxjs": "~7.4.0",
+    "rxjs": "^6.5.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
